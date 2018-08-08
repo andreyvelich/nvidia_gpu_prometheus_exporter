@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: nvidia-gpu-exporter
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: nvidia-gpu-exporter
+spec:
+  template:
+    metadata:
+      name: nvidia-gpu-exporter
+      labels:
+        app: prometheus
+        component: gpu-exporter
+    spec:
+      containers:
+      - image: swiftdiaries/gpu_prom_metrics:latest
+        name: nvidia-gpu-exporter
+        ports:
+        - name: prom-gpu-exp
+          #^ must be an IANA_SVC_NAME (at most 15 characters, ..)
+          containerPort: 9445
+          hostPort: 9445
+      hostNetwork: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+  name: nvidia-gpu-exporter
+  namespace: monitoring
+  labels:
+    app: prometheus
+    component: node-exporter
+spec:
+  ports:
+    - name: nvidia-gpu-exporter
+      port: 9445
+      protocol: TCP
+  selector:
+    app: prometheus
+    component: gpu-exporter
+  type: NodePort

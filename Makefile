@@ -4,11 +4,14 @@ TAG := $(shell date +v%Y%m%d)-$(GIT_VERSION)
 all: build
 
 build:
-	docker build -f Dockerfile -t ${IMG}:${TAG} .
-	docker tag ${IMG}:${TAG} ${IMG}:latest
+        docker build -f Dockerfile -t ${IMG}:${TAG} .
+        docker tag ${IMG}:${TAG} ${IMG}:latest
 
 push:
-	docker push ${IMG}:${TAG}
+        docker push ${IMG}:${TAG}
 
 push-latest:
-	docker push ${IMG}:latest
+        docker push ${IMG}:latest
+
+run-latest:
+        docker run --runtime=nvidia --rm ${IMG}:latest
