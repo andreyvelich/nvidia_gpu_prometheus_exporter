@@ -1,5 +1,14 @@
-PKG=github.com/mindprince/nvidia_gpu_prometheus_exporter
+IMG = swiftdiaries/gpu_prom_metrics
+TAG := $(shell date +v%Y%m%d)-$(GIT_VERSION)
 
-.PHONY: build
+all: build
+
 build:
-	docker run -v $(shell pwd):/go/src/$(PKG) --workdir=/go/src/$(PKG) golang:1.10 go build
+	docker build -f Dockerfile -t ${IMG}:${TAG} .
+	docker tag ${IMG}:${TAG} ${IMG}:latest
+
+push:
+	docker push ${IMG}:${TAG}
+
+push-latest:
+	docker push ${IMG}:latest
