@@ -38,6 +38,18 @@ Note: It takes a couple of minutes for the drivers to install.
 #### Prometheus, Grafana install (uses complicated YAML ~ 2k lines, // TODO reconfigure)
 `$ kubectl apply --filename https://raw.githubusercontent.com/giantswarm/kubernetes-prometheus/master/manifests-all.yaml` 
 
+#### Grafana dashboard
+
+`wget https://raw.githubusercontent.com/swiftdiaries/nvidia_gpu_prometheus_exporter/master/Prometheus-GPU-stats-1533769198014.json`
+
+Import this JSON to Grafana.
+
+#### Preview
+
+![Grafana Preview](https://raw.githubusercontent.com/swiftdiaries/nvidia_gpu_prometheus_exporter/master/GPU-stats-grafana-screens.png "Grafana GPU stats")
+Note: Excuse the flat duty cycle. 
+
+
 ## TODO
 
 1. Reduce size of image used for exporter.
