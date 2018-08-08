@@ -9,6 +9,8 @@ WORKDIR $GOPATH/src/github.com/mindprince/nvidia_gpu_prometheus_exporter
 COPY Gopkg.toml Gopkg.lock ./
 RUN dep ensure --vendor-only
 COPY . ./
+ENV LIBRARY_PATH /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
+ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o app .
 EXPOSE 9445
 ENTRYPOINT ["./app"]
