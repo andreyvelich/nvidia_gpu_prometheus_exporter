@@ -31,7 +31,6 @@ Note: Ensure nvidia-docker is installed.
 
 Reference: [GitHub - NVIDIA/nvidia-docker: Build and run Docker containers leveraging NVIDIA GPUs](https://github.com/NVIDIA/nvidia-docker)
 
-Note: configure kubeadm for GPU nodes using k8s-device-plugin docs.
 #### Nvidia driver install - daemonset
 `$ kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml`
 Note: It takes a couple of minutes for the drivers to install.
