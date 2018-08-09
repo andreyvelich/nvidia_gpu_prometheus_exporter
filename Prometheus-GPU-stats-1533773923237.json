@@ -48,7 +48,7 @@
   "rows": [
     {
       "collapse": false,
-      "height": 227,
+      "height": 246,
       "panels": [
         {
           "cacheTimeout": null,
@@ -96,7 +96,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 3,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -109,7 +109,7 @@
               "intervalFactor": 2,
               "metric": "nvidia_gpu_temperature_celsius",
               "refId": "A",
-              "step": 120
+              "step": 2400
             }
           ],
           "thresholds": "38,40,42",
@@ -124,6 +124,81 @@
             }
           ],
           "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_PROMETHEUS}",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 9,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 1.5,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "nvidia_gpu_fanspeed_percent",
+              "intervalFactor": 2,
+              "metric": "nvidia_gpu_fanspeed_percent",
+              "refId": "A",
+              "step": 2400
+            }
+          ],
+          "thresholds": "50,80",
+          "title": "GPU Fan Speed",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
         },
         {
           "aliasColors": {},
@@ -149,7 +224,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 5,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -158,7 +233,7 @@
               "intervalFactor": 2,
               "metric": "nvidia_gpu_duty_cycle",
               "refId": "A",
-              "step": 10
+              "step": 600
             }
           ],
           "thresholds": [],
@@ -220,7 +295,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 2.5,
+          "span": 1.5,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -229,7 +304,7 @@
               "intervalFactor": 2,
               "metric": "nvidia_gpu_memory_total_bytes",
               "refId": "A",
-              "step": 20
+              "step": 1200
             }
           ],
           "thresholds": [],
@@ -291,7 +366,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 2.5,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -300,7 +375,7 @@
               "intervalFactor": 2,
               "metric": "nvidia_gpu_memory_used_bytes",
               "refId": "A",
-              "step": 20
+              "step": 600
             }
           ],
           "thresholds": [],
@@ -374,7 +449,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -383,7 +458,7 @@
               "intervalFactor": 2,
               "metric": "node_memory_Active",
               "refId": "A",
-              "step": 10
+              "step": 120
             }
           ],
           "thresholds": [],
@@ -445,7 +520,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -453,7 +528,7 @@
               "expr": "(node_memory_MemTotal- node_memory_MemFree) / node_memory_MemTotal",
               "intervalFactor": 2,
               "refId": "A",
-              "step": 10
+              "step": 600
             }
           ],
           "thresholds": [],
@@ -490,19 +565,7 @@
               "show": true
             }
           ]
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Node Memory",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
+        },
         {
           "aliasColors": {},
           "bars": false,
@@ -527,7 +590,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -536,7 +599,7 @@
               "intervalFactor": 2,
               "metric": "node_cpu",
               "refId": "A",
-              "step": 4
+              "step": 240
             }
           ],
           "thresholds": [],
@@ -579,7 +642,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Node CPU",
+      "title": "Dashboard Row",
       "titleSize": "h6"
     }
   ],
@@ -590,8 +653,8 @@
     "list": []
   },
   "time": {
-    "from": "2018-08-08T13:38:24.580Z",
-    "to": "2018-08-08T14:55:52.070Z"
+    "from": "2018-08-08T07:00:00.000Z",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -620,5 +683,5 @@
   },
   "timezone": "browser",
   "title": "Prometheus - GPU stats",
-  "version": 5
+  "version": 7
 }
