@@ -296,7 +296,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "nvidia_gpu_memory_used_bytes/10000",
+              "expr": "nvidia_gpu_memory_used_bytes/1000000",
               "intervalFactor": 2,
               "metric": "nvidia_gpu_memory_used_bytes",
               "refId": "A",
@@ -620,5 +620,5 @@
   },
   "timezone": "browser",
   "title": "Prometheus - GPU stats",
-  "version": 4
+  "version": 5
 }
