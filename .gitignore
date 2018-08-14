@@ -1,2 +1,5 @@
 .vscode
 .DS_Store
+ksonnet-registry/prometheus-grafana/vendor
+ksonnet-registry/prometheus-grafana/jsonnetfile.lock.json
+ksonnet-registry/prometheus-grafana/manifests
