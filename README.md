@@ -63,12 +63,15 @@ Note: priority is not necessarily in that order.
 ## Run locally using Docker
 
 `$ make build`
+
 `$ docker run -p 9445:9445 --rm --runtime=nvidia swiftdiaries/gpu_prom_metrics`
 
 Make changes, build, iterate.
 
 Verify:
+
 `$ localhost:9445/metrics | grep -i "gpu"`
+
 ```
 Sample output:
 
