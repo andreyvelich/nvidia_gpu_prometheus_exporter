@@ -19,7 +19,6 @@ spec:
         name: nvidia-gpu-exporter
         ports:
         - name: prom-gpu-exp
-          #^ must be an IANA_SVC_NAME (at most 15 characters, ..)
           containerPort: 9445
           hostPort: 9445
       hostNetwork: true

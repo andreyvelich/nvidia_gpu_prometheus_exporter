@@ -1,8 +1,8 @@
 {
-   "name": "device-plugin-daemonset",
+   "name": "nvidia-prometheus-exporter",
    "apiVersion": "0.0.1",
    "kind": "ksonnet.io/parts",
-   "description": "Nvidia k8s device plugin daemonset\n",
+   "description": "Nvidia Prometheus GPU stats exporter\n",
    "author": "Cisco AI",
    "contributors": [
       {
@@ -13,7 +13,8 @@
    "keywords": [
       "Nvidia",
       "GPUs",
-      "daemonset"
+      "Prometheus",
+      "Monitoring"
    ],
    "license": "Apache 2.0"
 }
