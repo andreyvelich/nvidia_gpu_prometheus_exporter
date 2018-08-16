@@ -32,7 +32,6 @@ local k = import 'ksonnet.beta.3/k.libsonnet';
         local gpuVolume = gpuVolumeType.fromHostPath(gpuVolumeName, '/var/lib/kubelet/device-plugins');
         local gpuVolumeMount = gpuVolumeMountType.new(gpuVolumeName, '/var/lib/kubelet/device-plugins');
 
-        local securityContextType = daemonset.mixin.spec.template.spec.securityContextType;
         local gpuDaemonsetContainer = container.new('nvidia-device-plugin-ctr', 'nvidia/k8s-device-plugin:1.11') +
         container.withVolumeMounts(gpuVolumeMount);
 
@@ -43,7 +42,6 @@ local k = import 'ksonnet.beta.3/k.libsonnet';
         daemonset.mixin.metadata.withLabels({'name': 'nvidia-device-plugin-ds'}) +
         daemonset.mixin.spec.template.spec.withTolerations(gpuTolerations) +
         daemonset.mixin.spec.template.spec.withContainers(gpuDaemonsetContainer) +
-        daemonset.mixin.spec.template.spec.securityContext.mixinInstance() +
         daemonset.mixin.spec.template.spec.withVolumes([gpuVolume]),
 
         service:

@@ -2,8 +2,8 @@ apiVersion: '0.1'
 kind: ksonnet.io/registry
 libraries:
   prometheus-grafana:
-    version: master
+    version: ksonnet
     path: prometheus-grafana
-  gpu-metrics-exporter:
-    version: master
-    path: gpu-metrics-exporter
+  nvidia-prometheus-exporter:
+    version: ksonnet
+    path: nvidia-prometheus-exporter
