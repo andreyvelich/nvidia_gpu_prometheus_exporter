@@ -15,6 +15,8 @@ local k = import 'ksonnet.beta.3/k.libsonnet';
         daemonset.mixin.spec.template.metadata.withName('nvidia-gpu-exporter') +
         daemonset.mixin.spec.template.metadata.withLabels({'app': 'prometheus', 'component': 'gpu-exporter'}) +
         daemonset.mixin.spec.template.spec.withContainers(gpuExporter) +
+        daemonset.mixin.spec.template.spec.securityContext.withRunAsUser(0) +
+        daemonset.mixin.spec.template.spec.securityContext.withRunAsNonRoot(false) +
         daemonset.mixin.spec.template.spec.withHostNetwork(true),
 
         devicePluginDaemonset:
@@ -42,6 +44,8 @@ local k = import 'ksonnet.beta.3/k.libsonnet';
         daemonset.mixin.metadata.withLabels({'name': 'nvidia-device-plugin-ds'}) +
         daemonset.mixin.spec.template.spec.withTolerations(gpuTolerations) +
         daemonset.mixin.spec.template.spec.withContainers(gpuDaemonsetContainer) +
+        daemonset.mixin.spec.template.spec.securityContext.withRunAsUser(0) +
+        daemonset.mixin.spec.template.spec.securityContext.withRunAsNonRoot(false) +
         daemonset.mixin.spec.template.spec.withVolumes([gpuVolume]),
 
         service:
