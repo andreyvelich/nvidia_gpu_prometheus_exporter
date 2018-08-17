@@ -1,5 +1,5 @@
 // @apiVersion 0.1
-// @name io.ksonnet.pkg.prom-gpu-exporter
+// @name io.ksonnet.pkg.nvidia-prometheus-exporter
 // @description A GPU stats exporter for Prometheus on Kubeflow.
 // @shortDescription A Prometheus exporter.
 // @param name string Name
