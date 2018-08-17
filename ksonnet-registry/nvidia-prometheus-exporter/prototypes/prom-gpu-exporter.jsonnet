@@ -2,6 +2,7 @@
 // @name io.ksonnet.pkg.prom-gpu-exporter
 // @description A GPU stats exporter for Prometheus on Kubeflow.
 // @shortDescription A Prometheus exporter.
+// @param name string Name
 // @optionalParam namespace string null Namespace to use for the components. It is automatically inherited from the environment if not set.
 
 // updatedParams uses the environment namespace if
