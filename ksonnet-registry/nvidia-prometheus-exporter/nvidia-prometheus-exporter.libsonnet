@@ -104,16 +104,18 @@
                 },
         },
         spec: {
-            ports: {
+            ports: [
+                {
                 name: "nvidia-gpu-exporter",
                 port: "9445",
                 protocol: "TCP",
+                },
+            ],
             selector: {
                 app: "prometheus",
                 component: "gpu-exporter",
             },
             type: "NodePort",
-            },
         },
     }, //exporterService,
 },
