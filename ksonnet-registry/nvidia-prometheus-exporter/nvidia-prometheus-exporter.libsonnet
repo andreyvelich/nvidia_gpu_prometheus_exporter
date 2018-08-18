@@ -1,6 +1,12 @@
 {
-  parts(params):: [
-    {
+  parts(params):: {
+    all:: [
+        $.parts(params).devicePluginDaemonset,
+        $.parts(params).exporterDaemonset,
+        $.parts(params).exporterService,
+    ],
+
+    devicePluginDaemonset: {
         apiVersion: "extensions/v1beta1",
         kind: "DaemonSet",
         metadata: {
@@ -47,7 +53,7 @@
         },
     }, //devicePluginDaemonset
 
-    {
+    exporterDaemonset: {
         apiVersion: "extensions/v1beta1",
         kind: "DaemonSet",
         metadata: {
@@ -83,7 +89,7 @@
         },
     }, //exporterDaemonset
 
-    {
+    exporterService: {
         apiVersion: "v1",
         kind: "Service",
         metadata: {
@@ -110,5 +116,5 @@
             },
         },
     }, //exporterService,
-],
+},
 }

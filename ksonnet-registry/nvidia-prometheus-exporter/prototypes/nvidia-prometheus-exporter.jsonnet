@@ -5,6 +5,8 @@
 // @param name string Name
 // @optionalParam namespace string null Namespace to use for the components. It is automatically inherited from the environment if not set.
 
+local k = import "k.libsonnet";
+
 // updatedParams uses the environment namespace if
 // the namespace parameter is not explicitly set
 local updatedParams = params {
@@ -12,4 +14,4 @@ local updatedParams = params {
 };
 
 local nvidiaGpuExporter = import "ksonnet-registry/nvidia-prometheus-exporter/nvidia-prometheus-exporter.libsonnet";
-nvidiaGpuExporter.parts(updatedParams)
+std.prune(k.core.v1.list.new(nvidiaGpuExporter.parts(updatedParams).all))
