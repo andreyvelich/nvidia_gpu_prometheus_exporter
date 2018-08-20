@@ -24,30 +24,38 @@
                     },
                 },
                 spec:{
-                    tolerations: {
+                    tolerations: [ 
+                    {
                         key: "CriticalAddonsOnly",
                         operator: "Exists",
                     },
-                    containers: {
+                    ],
+                    containers: [
+                        {
                         image: "nvidia/k8s-device-plugin:1.11",
                         name: "nvidia-device-plugin-ctr",
                         securityContext: {
-                            allowPrivilegeEscalation: "false",
+                            allowPrivilegeEscalation: false,
                             capabilities: {
                                 drop: ["ALL"]
                             },
                         },
-                        volumeMounts:{
+                        volumeMounts: [
+                        {
                             name: "device-plugin",
                             mountPath: "/var/lib/kubelet/device-plugins",
                         },
+                        ],
                     },
-                    volumes: {
+                    ],
+                    volumes: [
+                    {
                         name: "device-plugin",
                         hostPath: {
                             path: "/var/lib/kubelet/device-plugins",
                         },
                     },
+                    ],
                 },
             },
         },
@@ -74,17 +82,21 @@
                         },
                 },
                 spec: {
-                    containers: {
-                        image: "swiftdiaries/gpu_prom_metrics:latest",
+                    containers: [
+                    {
+                    image: "swiftdiaries/gpu_prom_metrics:latest",
                     name: "nvidia-gpu-exporter",
-                    ports: {
+                    ports: [
+                        {
                         name: "prom-gpu-exp",
-                        containerPort: "9445",
-                        hostPort: "9445",
+                        containerPort: 9445,
+                        hostPort: 9445,
                     },
-                    hostNetwork: "true",
-                    },
+                    ],
                 },
+                ],
+                hostNetwork: true,
+                    },
             },
         },
     }, //exporterDaemonset
@@ -106,9 +118,9 @@
         spec: {
             ports: [
                 {
-                name: "nvidia-gpu-exporter",
-                port: "9445",
-                protocol: "TCP",
+                    name: "nvidia-gpu-exporter",
+                    port: 9445,
+                    protocol: "TCP",
                 },
             ],
             selector: {

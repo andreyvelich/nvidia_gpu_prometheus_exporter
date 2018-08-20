@@ -13,5 +13,5 @@ local updatedParams = params {
   namespace: if params.namespace == "null" then env.namespace else params.namespace,
 };
 
-local nvidiaGpuExporter = import "ksonnet-registry/nvidia-prometheus-exporter/nvidia-prometheus-exporter.libsonnet";
+local nvidiaGpuExporter = import "gpu-prometheus/nvidia-prometheus-exporter/nvidia-prometheus-exporter.libsonnet";
 std.prune(k.core.v1.list.new(nvidiaGpuExporter.parts(updatedParams).all))

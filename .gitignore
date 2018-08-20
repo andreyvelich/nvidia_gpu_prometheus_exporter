@@ -1,6 +1,6 @@
 .vscode
 .DS_Store
-ksonnet-registry/prometheus-grafana/vendor
-ksonnet-registry/prometheus-grafana/jsonnetfile.lock.json
-ksonnet-registry/prometheus-grafana/manifests
-ksonnet-registry/nvidia-prometheus-exporter/manifests
+gpu-prometheus/prometheus-grafana/vendor
+gpu-prometheus/prometheus-grafana/jsonnetfile.lock.json
+gpu-prometheus/prometheus-grafana/manifests
+gpu-prometheus/nvidia-prometheus-exporter/manifests
