@@ -27,6 +27,17 @@ go get github.com/mindprince/nvidia_gpu_prometheus_exporter
 kubectl create -f https://raw.githubusercontent.com/swiftdiaries/nvidia_gpu_prometheus_exporter/master/nvidia-exporter.yaml
 ```
 
+### Using ksonnet
+```bash
+kubectl create ns monitoring
+ks init ks-app --env default --namespace monitoring --skip-default-registries
+cd ks-app
+ks registry add gpu-prometheus https://github.com/swiftdiaries/nvidia_gpu_prometheus_exporter/tree/master/gpu-prometheus
+ks pkg install gpu-prometheus/nvidia-prometheus-exporter
+ks generate nvidia-prometheus-exporter nvidia-prometheus-exporter
+ks apply default
+```
+
 ## Complete setup on a k8s cluster
 
 Note: Ensure nvidia-docker is installed.
