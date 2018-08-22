@@ -10,7 +10,7 @@ Unlike some other similar exporters, it does not call the
 
 ## Design Doc
 
-[[https://github.com/swiftdiaries/nvidia_gpu_prometheus_exporter/blob/master/gpu-design-doc.jpg|alt=designdoc]]
+[Design Doc](https://github.com/swiftdiaries/nvidia_gpu_prometheus_exporter/wiki/Docs)
 
 ## Building
 
