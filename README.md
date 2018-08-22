@@ -8,6 +8,10 @@ for [NVIDIA Management Library](https://developer.nvidia.com/nvidia-management-l
 Unlike some other similar exporters, it does not call the
 [`nvidia-smi`](https://developer.nvidia.com/nvidia-system-management-interface) binary.
 
+## Design Doc
+
+![Design Doc](https://raw.githubusercontent.com/swiftdiaries/nvidia_gpu_prometheus_exporter/master/gpu-design-doc.jpg "High level design")
+
 ## Building
 
 The repository includes `nvml.h`, so there are no special requirements from the
