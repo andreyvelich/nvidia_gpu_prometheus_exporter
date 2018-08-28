@@ -29,6 +29,11 @@
                         key: "CriticalAddonsOnly",
                         operator: "Exists",
                     },
+                    {
+                        key: "nvidia.com/gpu",
+                        operator: "Exists",
+                        effect: "NoSchedule",
+                    },
                     ],
                     containers: [
                         {
